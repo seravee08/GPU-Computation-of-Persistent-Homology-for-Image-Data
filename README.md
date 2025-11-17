@@ -33,7 +33,7 @@ docker run --name topogpu -it --gpus=all `
 - Example commands inside the container:
 ```
 ./build/topoGPU -help
-./build/topoGPU -filename /data/mrt_angio_416x512x112_uint16.raw -datatype ushort -height 512 -width 416 -depth 112 -bufSize 3000
+./build/topoGPU -filename /data/mrt_angio_416x512x112_uint16.raw -datatype ushort -height 512 -width 416 -depth 112 -bufSize 3000 -out /result.txt
 ```
 
 **Linux**
