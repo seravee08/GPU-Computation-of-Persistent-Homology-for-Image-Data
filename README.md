@@ -60,10 +60,10 @@ Prebuilt binary wheels of TopoGPU are available for Python 3.10 and 3.12 on Linu
 Install the wheel that matches your Python version:
 ```
 # Python 3.10
-pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/raw/main/releases/topogpu-0.1.0-cp310-cp310-linux_x86_64.whl
+pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/raw/main/releases/topogpu-0.1.0-cp310-linux_x86_64.whl
 
 # Python 3.12
-pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/raw/main/releases/topogpu-0.1.0-cp312-cp312-linux_x86_64.whl
+pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/raw/main/releases/topogpu-0.1.0-cp312-linux_x86_64.whl
 ```
 
 ## Source Codes
