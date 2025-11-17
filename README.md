@@ -22,13 +22,13 @@ CUDA-accelerated persistent homology for 2D/3D image data using cubical complexe
 
 ### Run Docker
 **Windows 10/11**
-- Pull image: ```docker pull seravee08/topogpu:cuda12-runtime```
+- Pull image: ```docker pull seravee08/topogpu:latest```
 - Create container and enter shell (Replace PATH_TO_DATA with an absolute Windows path):
 ```command
 docker run --name topogpu -it --gpus=all `
   --mount type=bind,source="PATH_TO_DATA",target=/data `
   -w /opt/app --entrypoint /bin/bash `
-  seravee08/topogpu:cuda12-runtime
+  seravee08/topogpu:latest
 ```
 - Example commands inside the container:
 ```
@@ -37,13 +37,13 @@ docker run --name topogpu -it --gpus=all `
 ```
 
 **Linux**
-- Pull image: ```docker pull seravee08/topogpu:cuda12-runtime```
+- Pull image: ```docker pull seravee08/topogpu:latest```
 - Create container and enter shell (Replace /abs/path/to/data with your absolute path):
 ```command
 docker run --name topogpu -it --gpus all \
   -v /abs/path/to/data:/data \
   -w /opt/app --entrypoint /bin/bash \
-  seravee08/topogpu:cuda12-runtime
+  seravee08/topogpu:latest
 ```
 - Run program on your data.
 
