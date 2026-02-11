@@ -3,8 +3,7 @@ CUDA-accelerated persistent homology for 2D/3D image data using cubical complexe
 
 ## Google Colab
 
-
-A **TopoGPU-demo** notebook is provided to make it easy to try TopoGPU without installing it locally.
+We provide a **TopoGPU-demo** notebook on Google Colab that demonstrates how to use TopoGPU.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/blob/main/TopoGPU_demo.ipynb)
 
