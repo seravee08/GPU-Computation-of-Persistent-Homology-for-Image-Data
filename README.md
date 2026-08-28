@@ -1,6 +1,9 @@
 # GPU-Computation-of-Persistent-Homology-for-Image-Data
 CUDA-accelerated persistent homology for 2D/3D image data using cubical complexes.
 
+## Acknowledgments
+This software was developed by Fan Wang as part of a research collaboration with Hubert Wagner, Rezaul Chowdhury, and Chao Chen. I thank Dr. Hubert Wagner for valuable discussions that informed the design of this work. A manuscript describing this work is in preparation and will be linked here upon publication.
+
 ## 1️⃣ Google Colab
 
 We provide a **TopoGPU-demo** notebook on Google Colab that demonstrates how to use TopoGPU.
