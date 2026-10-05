@@ -88,7 +88,7 @@ Install the wheel that matches your Python version:
 pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/releases/download/v2.0.0/topogpu-2.0.0-cp310-cp310-linux_x86_64.whl
 
 # Python 3.12
-pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/releases/download/v2.0.0/topogpu-2.0.0-cp310-cp310-linux_x86_64.whl
+pip install https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/releases/download/v2.0.0/topogpu-2.0.0-cp312-cp312-linux_x86_64.whl
 ```
 
 ## 4️⃣ Source Codes
