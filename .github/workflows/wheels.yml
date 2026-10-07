@@ -1,0 +1,44 @@
+name: build-wheels
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: seravee08/topogpu:v2.0.0
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build binary and wheels
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          bash scripts/build.sh
+
+      - name: Smoke test
+        run: |
+          python -m pip install --break-system-packages dist/topogpu-*-cp312-*.whl
+          python -c "import topogpu; print('import ok')"
+
+      - name: Keep build outputs as downloadable artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels
+          path: |
+            dist/*.whl
+            build/topoGPU
+
+      - name: Upload to GitHub Release (only when a tag was pushed)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          prerelease: ${{ contains(github.ref, 'test') }}
+          files: |
+            dist/*.whl
+            build/topoGPU
