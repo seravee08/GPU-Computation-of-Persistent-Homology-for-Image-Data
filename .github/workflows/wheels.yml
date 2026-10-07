@@ -16,26 +16,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check toolchain
-        shell: bash
-        run: |
-          ls -la /root/.local/bin || echo "no /root/.local/bin"
-          ls /opt/python || echo "no /opt/python"
-          find / -maxdepth 4 -name uv -type f 2>/dev/null
-          find / -maxdepth 5 -name "python3.12" -type f 2>/dev/null | head
-
       - name: Build binary and wheels
         shell: bash
         run: |
-          export PATH=/root/.local/bin:/opt/rh/gcc-toolset-12/root/usr/bin:/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:/usr/local/cuda/bin:$PATH
+          export UV_PYTHON_INSTALL_DIR=/opt/python
+          command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sh
+          export PATH=$HOME/.local/bin:/root/.local/bin:/opt/rh/gcc-toolset-12/root/usr/bin:/usr/local/cuda/bin:$PATH
+          uv python install 3.10 3.11 3.12 3.13
+          export PATH="$(dirname "$(uv python find 3.12)"):$PATH"
+          for v in 3.10 3.11 3.12 3.13; do
+            uv pip install --python "$v" --system --break-system-packages \
+              "cython>=3.0.11" "numpy>=2.1" setuptools wheel build auditwheel patchelf
+          done
           export LD_LIBRARY_PATH=/opt/rh/gcc-toolset-12/root/usr/lib64:/usr/local/cuda/lib64
-          export CC=gcc CXX=g++ UV_PYTHON_INSTALL_DIR=/opt/python
+          export CC=gcc CXX=g++
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           bash scripts/build.sh
 
       - name: Smoke test
         shell: bash
         run: |
-          export PATH=/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:$PATH
-          python -m pip install --break-system-packages dist/topogpu-*-cp312-*.whl
-          python -c "import topogpu; print('import ok')"
+          export PATH=$HOME/.local/bin:/root/.local/bin:$PATH
+          PY="$(uv python find 3.12)"
+          "$PY" -m pip install --break-system-packages dist/topogpu-*-cp312-*.whl
+          "$PY" -c "import topogpu; print('import ok')"
