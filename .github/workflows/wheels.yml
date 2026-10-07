@@ -19,8 +19,10 @@ jobs:
       - name: Check toolchain
         shell: bash
         run: |
-          export PATH=/root/.local/bin:/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:/usr/local/cuda/bin:$PATH
-          which nvcc uv python && nvcc --version | tail -1 && uv python list
+          ls -la /root/.local/bin || echo "no /root/.local/bin"
+          ls /opt/python || echo "no /opt/python"
+          find / -maxdepth 4 -name uv -type f 2>/dev/null
+          find / -maxdepth 5 -name "python3.12" -type f 2>/dev/null | head
 
       - name: Build binary and wheels
         shell: bash
