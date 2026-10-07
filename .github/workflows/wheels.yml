@@ -16,29 +16,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build binary and wheels
+      - name: Check toolchain
+        shell: bash
         run: |
+          export PATH=/root/.local/bin:/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:/usr/local/cuda/bin:$PATH
+          which nvcc uv python && nvcc --version | tail -1 && uv python list
+
+      - name: Build binary and wheels
+        shell: bash
+        run: |
+          export PATH=/root/.local/bin:/opt/rh/gcc-toolset-12/root/usr/bin:/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:/usr/local/cuda/bin:$PATH
+          export LD_LIBRARY_PATH=/opt/rh/gcc-toolset-12/root/usr/lib64:/usr/local/cuda/lib64
+          export CC=gcc CXX=g++ UV_PYTHON_INSTALL_DIR=/opt/python
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           bash scripts/build.sh
 
       - name: Smoke test
+        shell: bash
         run: |
+          export PATH=/opt/python/cpython-3.12.15-linux-x86_64-gnu/bin:$PATH
           python -m pip install --break-system-packages dist/topogpu-*-cp312-*.whl
           python -c "import topogpu; print('import ok')"
-
-      - name: Keep build outputs as downloadable artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: wheels
-          path: |
-            dist/*.whl
-            build/topoGPU
-
-      - name: Upload to GitHub Release (only when a tag was pushed)
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
-        with:
-          prerelease: ${{ contains(github.ref, 'test') }}
-          files: |
-            dist/*.whl
-            build/topoGPU
