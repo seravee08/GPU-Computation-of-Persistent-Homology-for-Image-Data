@@ -1,11 +1,14 @@
 # TopoGPU: GPU-Accelerated Computation of Persistent Homology for Image Data
 
+[![Documentation Status](https://app.readthedocs.org/projects/gpu-computation-of-persistent-homology-for-image-data/badge/?version=latest)](https://gpu-computation-of-persistent-homology-for-image-data.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/github/license/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data)](https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/releases)
 [![Docker](https://img.shields.io/docker/v/seravee08/topogpu?label=docker)](https://hub.docker.com/r/seravee08/topogpu)
 [![Paper](https://img.shields.io/badge/TPAMI-10.1109%2FTPAMI.2026.3741473-blue)](https://doi.org/10.1109/TPAMI.2026.3741473)
 
 CUDA-accelerated persistent homology for 2D/3D image data using cubical complexes. TopoGPU streams the input chunk by chunk through the GPU (Morse matching, parallel topological sorting, parallel path-parity computation) and reduces the resulting boundary matrix on the CPU, achieving large speedups over CPU tools such as Cubical Ripser while supporting inputs larger than GPU memory.
+
+> **📖 Documentation:** the full user guide and Python API reference (installation, quick start, batch mode, 2D/3D API, command-line tool) is available at **https://gpu-computation-of-persistent-homology-for-image-data.readthedocs.io/**
 
 ## 📄 Paper
 This repository is the official implementation of:
