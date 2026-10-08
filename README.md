@@ -3,6 +3,7 @@
 [![Documentation Status](https://app.readthedocs.org/projects/gpu-computation-of-persistent-homology-for-image-data/badge/?version=latest)](https://gpu-computation-of-persistent-homology-for-image-data.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/github/license/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data)](https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/releases)
+[![build-wheels](https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/actions/workflows/wheels.yml/badge.svg)](https://github.com/seravee08/GPU-Computation-of-Persistent-Homology-for-Image-Data/actions/workflows/wheels.yml)
 [![Docker](https://img.shields.io/docker/v/seravee08/topogpu?label=docker)](https://hub.docker.com/r/seravee08/topogpu)
 [![Paper](https://img.shields.io/badge/TPAMI-10.1109%2FTPAMI.2026.3741473-blue)](https://doi.org/10.1109/TPAMI.2026.3741473)
 
