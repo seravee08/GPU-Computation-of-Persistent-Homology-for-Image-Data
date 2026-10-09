@@ -20,7 +20,7 @@ This repository is the official implementation of:
 The paper will appear on IEEE Xplore (Early Access) shortly; an author-accepted preprint will be posted on arXiv.
 
 - 📰 IEEE Xplore: *[link coming soon]*
-- 📝 arXiv: *[link coming soon]*
+- 📝 arXiv: http://arxiv.org/abs/2610.10959
 - 📚 Supplementary material: *[link coming soon]*
 - 🧪 Code Ocean reproducible capsule: https://codeocean.com/capsule/d7f31487-b169-4cc0-a4e0-73b487cffe60/
 
